@@ -68,6 +68,9 @@ public class RegistrationPage {
     @FindBy(name = "pie_submit")
     private WebElement submitButton;
 
+    @FindBy(xpath = "//*[@id=\"pie_register\"]/li[8]/div/div/span")
+    private WebElement emailError;
+
     public RegistrationPage(WebDriver driver)
     {
         this.driver = driver;
@@ -75,9 +78,10 @@ public class RegistrationPage {
         verticalBar = new VerticalBar(driver);
     }
 
-    public void setFirstName(String firstName)
+    public RegistrationPage setFirstName(String firstName)
     {
         this.firstName.sendKeys(firstName);
+        return this;
     }
 
     public String getFirstName()
@@ -85,94 +89,116 @@ public class RegistrationPage {
         return firstName.getText();
     }
 
-    public void setLastName(String lastName)
+    public RegistrationPage setLastName(String lastName)
     {
         this.lastName.sendKeys(lastName);
+        return this;
     }
 
     public String getLastName()
     {
         return firstName.getText();
+
     }
 
-    public void setSingle()
+    public RegistrationPage setSingle()
     {
         singleRadio.click();
+        return this;
     }
 
-    public void setMarried()
+    public RegistrationPage setMarried()
     {
         marriedRadio.click();
+        return this;
     }
 
-    public void setDivorced()
+    public RegistrationPage setDivorced()
     {
         divorcedRadio.click();
+        return this;
     }
 
-    public void checkDance()
+    public RegistrationPage checkDance()
     {
         if(!danceCheckbox.isSelected())
             danceCheckbox.click();
+
+        return this;
     }
 
-    public void checkReading()
+    public RegistrationPage checkReading()
     {
         if(!readingCheckbox.isSelected())
             readingCheckbox.click();
+
+        return this;
     }
 
-    public void checkCricket()
+    public RegistrationPage checkCricket()
     {
         if(!cricketCheckbox.isSelected())
             cricketCheckbox.click();
+
+        return this;
     }
 
-    public void uncheckDance()
+    public RegistrationPage uncheckDance()
     {
         if(danceCheckbox.isSelected())
             danceCheckbox.click();
+
+        return this;
     }
 
-    public void uncheckReading()
+    public RegistrationPage uncheckReading()
     {
         if(readingCheckbox.isSelected())
             readingCheckbox.click();
+
+        return this;
     }
 
-    public void uncheckCricket()
+    public RegistrationPage uncheckCricket()
     {
         if(cricketCheckbox.isSelected())
             cricketCheckbox.click();
+
+        return this;
     }
 
-    public void selectCountry(String country)
+    public RegistrationPage selectCountry(String country)
     {
         Select selectCountry = new Select(this.country);
         selectCountry.selectByValue(country);
+        return this;
     }
 
-    public void selectMonth(String month)
+    public RegistrationPage selectMonth(String month)
     {
         Select selectMonth = new Select(this.month);
         selectMonth.selectByValue(month);
+        return this;
     }
 
-    public void selectYear(String year)
+    public RegistrationPage selectYear(String year)
     {
         Select selectYear = new Select(this.year);
         selectYear.selectByValue(year);
+        return this;
     }
 
-    public void selectDay(String day)
+    public RegistrationPage selectDay(String day)
     {
         Select selectDay = new Select(this.day);
         selectDay.selectByValue(day);
+        return this;
     }
 
-    public void setPhoneNumber(String phoneNumber)
+    public RegistrationPage setPhoneNumber(String phoneNumber)
     {
         this.phoneNumber.sendKeys(phoneNumber);
+        return this;
     }
 
     public String getPhoneNumber()
@@ -180,9 +206,10 @@ public class RegistrationPage {
         return phoneNumber.getText();
     }
 
-    public void setEmail(String email)
+    public RegistrationPage setEmail(String email)
     {
         this.email.sendKeys(email);
+        return this;
     }
 
     public String getEmail()
@@ -190,9 +217,10 @@ public class RegistrationPage {
         return email.getText();
     }
 
-    public void setUsername(String user)
+    public RegistrationPage setUsername(String user)
     {
         this.username.sendKeys(user);
+        return this;
     }
 
     public String getUsername()
@@ -200,29 +228,38 @@ public class RegistrationPage {
         return username.getText();
     }
 
-    public void setAboutYourself(String about)
+    public RegistrationPage setAboutYourself(String about)
     {
         this.aboutYourself.sendKeys(about);
+        return this;
     }
 
     public String getAboutYourself()
     {
         return aboutYourself.getText();
+
     }
 
-    public void setPassword(String password)
+    public RegistrationPage setPassword(String password)
     {
         this.password.sendKeys(password);
+        return this;
     }
 
-    public void setConfirmPassword(String password)
+    public RegistrationPage setConfirmPassword(String password)
     {
         this.confirmPassword.sendKeys(password);
+        return this;
     }
 
     public RegistrationPage submit()
     {
         submitButton.click();
         return new RegistrationPage(driver);
+    }
+
+    public boolean emailErrorIsDisplayed()
+    {
+        return emailError.isDisplayed();
     }
 }
