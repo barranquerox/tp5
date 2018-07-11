@@ -8,10 +8,11 @@ public class VerticalBar {
     WebDriver driver;
 
     @FindBy(id = "menu-item-374")
-    WebElement registrationLink;
+    private WebElement registrationLink;
 
     public VerticalBar(WebDriver driver)
     {
+        this.driver = driver;
         PageFactory.initElements(driver, this);
     }
 

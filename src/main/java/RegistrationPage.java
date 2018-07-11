@@ -17,22 +17,22 @@ public class RegistrationPage {
     @FindBy(id = "name_3_lastname")
     private WebElement lastName;
 
-    @FindBy(css = "input[value='single']")
+    @FindBy(xpath = "//*[@id=\"pie_register\"]/li[2]/div/div/input[1]")
     private WebElement singleRadio;
 
-    @FindBy(css = "input[value='divorced']")
+    @FindBy(xpath = "//*[@id=\"pie_register\"]/li[2]/div/div/input[3]")
     private WebElement divorcedRadio;
 
-    @FindBy(css = "input[value='married']")
+    @FindBy(xpath = "//*[@id=\"pie_register\"]/li[2]/div/div/input[2]")
     private WebElement marriedRadio;
 
-    @FindBy(css = "input[value='dance']")
+    @FindBy(xpath = "//*[@id=\"pie_register\"]/li[3]/div/div[1]/input[1]")
     private WebElement danceCheckbox;
 
-    @FindBy(css = "input[value='reading']")
+    @FindBy(xpath = "//*[@id=\"pie_register\"]/li[3]/div/div[1]/input[2]")
     private WebElement readingCheckbox;
 
-    @FindBy(css = "input[value='cricket']")
+    @FindBy(xpath = "//*[@id=\"pie_register\"]/li[3]/div/div[1]/input[3]")
     private WebElement cricketCheckbox;
 
     @FindBy(id = "dropdown_7")
